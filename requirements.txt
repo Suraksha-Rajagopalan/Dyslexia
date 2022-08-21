@@ -55,7 +55,7 @@ protobuf==3.20.1
 pure-eval 
 pyarrow==9.0.0
 pydeck==0.7.1
-pyenchant==3.2.2
+pyenchant==1.6.6
 Pygments 
 Pympler==1.0.1
 pyparsing==3.0.9
