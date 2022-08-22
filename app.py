@@ -215,13 +215,13 @@ footer {visibility: hidden; }
 """
 
 st.markdown(hide_menu_style, unsafe_allow_html=True)
-st.title("Dyslexia Detection Using Handwriting Samples")
+st.title("U+270D Dyslexia Detection Using Handwriting Samples")
 st.write("This is a simple web app that works based on machine learning techniques. This application can predict the presence of dyslexia from the handwriting sample of a person.")
 
 
 with st.container():
     st.write("---")
-    left_column, right_column = st.colums(2)
+    left_column, right_column = st.columns(2)
     with left_colum:
         image = st.file_uploader("Upload the handwriting sample that you want to test", type=["jpg"])
         if image is not None:
