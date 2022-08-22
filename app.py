@@ -243,7 +243,7 @@ with st.container():
             image_uploaded.save("temp.jpg")
             st.image(image_uploaded, width=224)
     with right_column:
-        st_lottie(lottie_json, height = 300, key = "children")
+        st_lottie(lottie_children, height = 300, key = "children")
     
     
 if st.button("Predict", help="click after uploading the correct image"):
