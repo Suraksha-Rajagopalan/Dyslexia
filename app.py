@@ -215,7 +215,7 @@ footer {visibility: hidden; }
 """
 
 st.markdown(hide_menu_style, unsafe_allow_html=True)
-st.title("\U+270D Dyslexia Detection Using Handwriting Samples")
+st.title("   Dyslexia Detection Using Handwriting Samples")
 st.write("This is a simple web app that works based on machine learning techniques. This application can predict the presence of dyslexia from the handwriting sample of a person.")
 
 
