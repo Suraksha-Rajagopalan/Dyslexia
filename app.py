@@ -1,4 +1,5 @@
 import streamlit as st
+from streamlit_lottie import st_lottie
 from PIL import Image
 import os
 from textblob import TextBlob
@@ -214,6 +215,16 @@ footer {visibility: hidden; }
 </style>
 """
 
+# -------A function for animation------
+
+def load_lottieurl(url):
+    r = requests.get(url)
+    if r.status_code != 200:
+        return None
+    return r.json()
+
+
+lottie_coding = "https://assets4.lottiefiles.com/private_files/lf30_uddq5vcp.json"
 st.markdown(hide_menu_style, unsafe_allow_html=True)
 st.title("   Dyslexia Detection Using Handwriting Samples")
 st.write("This is a simple web app that works based on machine learning techniques. This application can predict the presence of dyslexia from the handwriting sample of a person.")
@@ -230,6 +241,8 @@ with st.container():
             image_uploaded = Image.open(image)
             image_uploaded.save("temp.jpg")
             st.image(image_uploaded, width=224)
+    with right_column:
+        st_lottie(lottie_coding, height = 300, key = "children")
     
     
 if st.button("Predict", help="click after uploading the correct image"):
