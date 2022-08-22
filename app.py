@@ -210,7 +210,7 @@ st.write("This is a simple web app that works based on machine learning techniqu
 image = st.file_uploader("Upload the handwriting sample that you want to test", type=["png", "jpg", "jpeg"])
 
 if image is not None:
-    st.write("please review the image selected")
+    st.write("Please review the image selected")
     st.write(image.name)
     image_uploaded = Image.open(image)
     image_uploaded.save("temp.jpg")
@@ -222,11 +222,11 @@ if st.button("Predict", help="click after uploading the correct image"):
         feature_array = get_feature_array("temp.jpg")
         result = score(feature_array)
         if result[0] == 1:
-            st.write("from the tests on this handwriting sample there is very slim chance that this person is sufferning from dyslexia or dysgraphia")
+            st.write("From the tests on this handwriting sample there is very slim chance that this person is sufferning from dyslexia or dysgraphia")
         else:
-            st.write("from the tests on this handwriting sample there is very high chance that this person is sufferning from dyslexia or dysgraphia")
+            st.write("From the tests on this handwriting sample there is very high chance that this person is sufferning from dyslexia or dysgraphia")
     except:
-        st.write("something went wrong at the server end please refresh the application and try again")
+        st.write("Something went wrong at the server end please refresh the application and try again")
         
     # feature_array = get_feature_array("temp.jpg")
     # result = score(feature_array)
