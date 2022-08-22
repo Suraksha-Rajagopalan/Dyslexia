@@ -223,16 +223,23 @@ st.write("This is a simple web app that works based on machine learning techniqu
 
 with st.container():
     st.write("---")
-    left_column, right_column = st.columns(2)
-    with left_column:
-        image = st.file_uploader("Upload the handwriting sample that you want to test", type=["jpg"])
-        if image is not None:
-            st.write("Please review the image selected")
-            st.write(image.name)
-            image_uploaded = Image.open(image)
-            image_uploaded.save("temp.jpg")
-            st.image(image_uploaded, width=224)
-    
+    image = st.file_uploader("Upload the handwriting sample that you want to test", type=["jpg"])
+    if image is not None:
+        st.write("Please review the image selected")
+        st.write(image.name)
+        image_uploaded = Image.open(image)
+        image_uploaded.save("temp.jpg")
+        st.image(image_uploaded, width=224)
+
+st.subheader("About APP: ")
+st.write("""
+Dyslexia, also known as reading disorder, is a disorder characterized by reading below the expected level for one's age. 
+Different people are affected to different degrees.
+The common symptoms include: Frequently making the same kinds of mistakes, like reversing letters, Having poor spelling, like spelling the same word correctly and 
+incorrectly in the same exercise, Having trouble remembering how words are spelled and applying spelling rules in writing, etc.
+
+Based on the spelling, grammatic, contextual and phonetics error the app predicts whether the person with the wrting has 
+dyslexia or not.""")
     
 if st.button("Predict", help="click after uploading the correct image"):
     try:
@@ -245,15 +252,6 @@ if st.button("Predict", help="click after uploading the correct image"):
     except:
         st.write("Something went wrong at the server end please refresh the application and try again")
    
-st.subheader("About APP")
-st.write("""
-Dyslexia, also known as reading disorder, is a disorder characterized by reading below the expected level for one's age. 
-Different people are affected to different degrees.
-The common symptoms include: Frequently making the same kinds of mistakes, like reversing letters, Having poor spelling, like spelling the same word correctly and 
-incorrectly in the same exercise, Having trouble remembering how words are spelled and applying spelling rules in writing, etc.
-
-Based on the spelling, grammatic, contextual and phonetics error the app predicts whether the person with the wrting has 
-dyslexia or not."""
         
     # feature_array = get_feature_array("temp.jpg")
     # result = score(feature_array)
