@@ -244,6 +244,16 @@ if st.button("Predict", help="click after uploading the correct image"):
             st.write("From the tests on this handwriting sample there is very high chance that this person is sufferning from dyslexia or dysgraphia")
     except:
         st.write("Something went wrong at the server end please refresh the application and try again")
+   
+st.subheader("About APP")
+st.write("""
+Dyslexia, also known as reading disorder, is a disorder characterized by reading below the expected level for one's age. 
+Different people are affected to different degrees.
+The common symptoms include: Frequently making the same kinds of mistakes, like reversing letters, Having poor spelling, like spelling the same word correctly and 
+incorrectly in the same exercise, Having trouble remembering how words are spelled and applying spelling rules in writing, etc.
+
+Based on the spelling, grammatic, contextual and phonetics error the app predicts whether the person with the wrting has 
+dyslexia or not."""
         
     # feature_array = get_feature_array("temp.jpg")
     # result = score(feature_array)
