@@ -205,7 +205,7 @@ def score(input):
 
 # deploying the model
 
-st.set_page_config(page_title="Dyslexia Webapp", layout="wide")
+st.set_page_config(page_title="Dyslexia Webapp")
 
 hide_menu_style = """
 <style>
