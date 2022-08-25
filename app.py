@@ -328,11 +328,12 @@ with tab3:
     st.subheader("Average corrections is less for a non-dyslexic child when compared to dyslexic child")
     st.image("percentage_of_corrections.jpg")
     
+    st.subheader("Spelling accuracy for a dyslexic and a non-dyslexic child")
+    st.image("spelling_accuracy.jpg")
+    
     st.subheader("Average Phonetic accuracy comparision between a dyslexic and a non-dyslexic child ")
     st.image("percentage_of_phonetic_accuraccy.jpg")
 
-    st.subheader("Spelling accuracy for a dyslexic and a non-dyslexic child")
-    st.image("spelling_accuracy.jpg")
     
     
     # feature_array = get_feature_array("temp.jpg")
