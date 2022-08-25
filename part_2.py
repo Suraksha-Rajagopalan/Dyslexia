@@ -88,10 +88,18 @@ with tab2:
     pronounciation_test = st.button("Start a pronouncation test")
 
     pronounciation_inaccuracy = 0
-
+    level = 0
+    option = st.selectbox(
+            "select your standard", ('2nd-4th', '5th-7th'))
+    if option=='2nd-4th':
+        level = 2
+    elif option == '5th-7th':
+        level = 1
+           
     if pronounciation_test:
         st.subheader("Please repeate the following words you only has 20 seconds to do that.")
-        arr = get_10_word_array(1)
+         
+        arr = get_10_word_array(level)
         for i in range(len(arr)):
             arr[i] = str(arr[i])
             arr[i] = arr[i].strip()
@@ -105,13 +113,19 @@ with tab2:
         pronounciation_inaccuracy = check_pronounciation(str_displayed, str_pronounced)/len(str_displayed)
         words.write("the pronounciation inacuuracy is: " + str(pronounciation_inaccuracy))
     
-    
-    
+      
     
 with tab3:   
     written_words =[]
     st.header("The listening ability of the user will be measured here")
     dictation_inacuracy = 0
+    level = 0
+    option = st.selectbox(
+            "select your standard", ('2nd-4th', '5th-7th'))
+    if option=='2nd-4th':
+        level = 2
+    elif option == '5th-7th':
+        level = 1
     
         
 
