@@ -58,7 +58,7 @@ def levenshtein(s1, s2):
 def check_pronounciation(str1 : str , str2: str):
     s1 = ipa.convert(str1)
     s2 = ipa.convert(str2)
-    levenshtein(s1,s2)
+    return levenshtein(s1,s2)
     
 def check_10_pro ():
     arr = get_10_word_array(2)
