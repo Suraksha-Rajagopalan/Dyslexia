@@ -249,6 +249,7 @@ footer {visibility: hidden; }
 
 
 st.markdown(hide_menu_style, unsafe_allow_html=True)
+st.header("Dyslexia Web APP")
 
 tab1, tab2, tab3 = st.tabs(["Home", "Main", "About"])
 
