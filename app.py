@@ -268,7 +268,8 @@ Though there's no cure for dyslexia, early assessment and intervention result in
 Sometimes dyslexia goes undiagnosed for years and isn't recognized until adulthood, but it's never 
 too late to seek help.""")
 
-    st.image("https://www.istockphoto.com/illustrations/dyslexia-awareness")
+    img1 = Image.open("https://www.istockphoto.com/illustrations/dyslexia-awareness")
+    st.image(img1, width = 250)
 
     st.subheader("Dyslexia- India")
     st.write("""
