@@ -5,17 +5,19 @@ import pyttsx3
 import time
 import eng_to_ipa as ipa
 
-def get_10_word_array(level: int):
+import streamlit as stl
+
+def get_20_word_array(level: int):
     if (level == 1):
         voc = pd.read_csv("intermediate_voc.csv")
         arr = voc.squeeze().to_numpy()
-        selected_list = random.sample(list(arr), 10)
+        selected_list = random.sample(list(arr), 20)
         return selected_list
     elif(level == 2):
         voc = pd.read_csv("elementary_voc.csv")
         # return (type(voc))
         arr = voc.squeeze().to_numpy()
-        selected_list = random.sample(list(arr), 10) 
+        selected_list = random.sample(list(arr), 20) 
         return selected_list
     else:
         return ([])
@@ -52,7 +54,6 @@ def levenshtein(s1, s2):
             substitutions = previous_row[j] + (c1 != c2)
             current_row.append(min(insertions, deletions, substitutions))
         previous_row = current_row
-
     return previous_row[-1]
 
 def check_pronounciation(str1 : str , str2: str):
@@ -61,7 +62,7 @@ def check_pronounciation(str1 : str , str2: str):
     return levenshtein(s1,s2)
     
 def check_10_pro ():
-    arr = get_10_word_array(2)
+    arr = get_20_word_array(2)
     str = " ".join(arr)
     print(str)
     rec = listen_for(20)
@@ -69,5 +70,24 @@ def check_10_pro ():
     print(check_pronounciation(str, rec))
 
 
-check_10_pro()
+# check_10_pro()
 
+stl.title("A Test for Dyslexia")
+stl.header("The pronounciation and reading ability of the user will be measured here")
+pronounciation_test = stl.button("Take a pronouncation test")
+
+pronounciation_accuracy = 0
+
+if pronounciation_test:
+    stl.subheader("Please repeate the following words you only has 30 seconds to do that.")
+    arr = get_20_word_array(1)
+    for i in range(len(arr)):
+        arr[i] = str(arr[i])
+        arr[i] = arr[i].strip()
+    str = str(" ".join(arr))
+    words = stl.text(str)
+    str_pronounced = listen_for(30)
+    # str_displayed = " ".join(arr)
+    pronounciation_accuracy = check_pronounciation(str, str_pronounced)
+    words.write("the pronounciation acuuracy is: " + str(pronounciation_accuracy))
+    
