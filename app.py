@@ -269,7 +269,7 @@ Sometimes dyslexia goes undiagnosed for years and isn't recognized until adultho
 too late to seek help.""")
 
     img1 = Image.open("https://www.istockphoto.com/illustrations/dyslexia-awareness")
-    st.image(img1, width = 250)
+    st.image(img1)
 
     st.subheader("Dyslexia- India")
     st.write("""
