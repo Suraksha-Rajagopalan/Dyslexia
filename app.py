@@ -270,7 +270,7 @@ too late to seek help.""")
 
     st.image("https://time.com/4608060/dyslexia-reading-disorder/")
 
-    st.subhheader("Dyslexia- India")
+    st.subheader("Dyslexia- India")
     st.write("""
 With regard to sociodemographic variables of primary school students, majority of the students 
 56 (56%) belong to the age group of 6 years and 44 (44%) were 7 years. On gender, 57 (57%) were 
