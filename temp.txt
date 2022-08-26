@@ -1,0 +1,62 @@
+with tab3:   
+    written_words =[]
+    st.header("The listening ability of the user will be measured here")
+    dictation_inacuracy = 0
+    level = 0
+    option = st.selectbox(
+            "select your standard", ('2nd-4th', '5th-7th'), key= "read")
+    if option=='2nd-4th':
+        level = 2
+    elif option == '5th-7th':
+        level = 1
+    
+    word_array = get_10_word_array(level)
+    
+    start = st.button("start the test")
+    
+    if start():
+        talk(word_array[0])
+       
+    form1 = st.form(key='word1')
+    name1 = form1.text_input('word 1')
+    submit1 = form1.form_submit_button('Submit')
+    st.write('Press submit to have your name printed below')
+    if submit1:
+        st.write(f'hello {name1}')
+        
+
+    form2 = st.form(key='word2')
+    name2 = form2.text_input('word 2')
+    submit2 = form2.form_submit_button('Submit')
+    st.write('Press submit to have your name printed below')
+    if submit2:
+        st.write(f'hello {name2}')
+        
+    form3 = st.form(key='word3')
+    name3 = form3.text_input('word 3')
+    submit3 = form3.form_submit_button('Submit')
+    st.write('Press submit to have your name printed below')
+    if submit3:
+        st.write(f'hello {name3}')
+        
+    form4 = st.form(key='word4')
+    name4 = form4.text_input('word 4')
+    submit4 = form4.form_submit_button('Submit')
+    st.write('Press submit to have your name printed below')
+    if submit4:
+        st.write(f'hello {name4}')
+        
+    form5 = st.form(key='word5')
+    name5 = form3.text_input('word 5')
+    submit5 = form5.form_submit_button('Submit')
+    st.write('Press submit to have your name printed below')
+    if submit5:
+        st.write(f'hello {name5}')
+        
+    form6 = st.form(key='word6')
+    name6 = form3.text_input('word 6')
+    submit6 = form6.form_submit_button('Submit')
+    st.write('Press submit to have your name printed below')
+    if submit6:
+        st.write(f'hello {name6}')
+    
