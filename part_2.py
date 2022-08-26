@@ -40,6 +40,7 @@ def talk(Word : str):
     engine = pyttsx3.init()
     engine.say(Word)
     engine.runAndWait()
+    return Word
     
 #'''-------------------------------------------------------------------------------------------------------------------------------------------------------------------------'''
     
@@ -79,23 +80,23 @@ def dictate_10_words(level : int):
 
 #'''-------------------------------------------------------------------------------------------------------------------------------------------------------------------------'''
 tab1, tab2, tab3 = st.tabs(["Home", "pronounciation test", "listening test"])
+level = 1
 
 with tab1:
-    st.title("A Test for Dyslexia")
-
-with tab2:
-    st.header("The pronounciation and reading ability of the user will be measured here")
-    pronounciation_test = st.button("Start a pronouncation test")
-
-    pronounciation_inaccuracy = 0
-    level = 0
+    
     option = st.selectbox(
             "select your standard", ('2nd-4th', '5th-7th'), key= "pro")
     if option=='2nd-4th':
         level = 2
     elif option == '5th-7th':
         level = 1
-           
+
+with tab2:
+    st.title("A Test for Dyslexia")
+    st.header("The pronounciation and reading ability of the user will be measured here")
+    pronounciation_test = st.button("Start a pronouncation test")
+
+    pronounciation_inaccuracy = 0 
     if pronounciation_test:
         st.subheader("Please repeate the following words you only has 20 seconds to do that.")
          
@@ -107,88 +108,20 @@ with tab2:
         str_displayed = str(" ".join(arr))
         words = st.text(">> " + "\n>>".join(arr) )
         status = st.text("listenning........")
-        str_pronounced = listen_for(30)
-        status.write("Time up! calculating inacuracy......")
-        # str_displayed = " ".join(arr)
-        pronounciation_inaccuracy = check_pronounciation(str_displayed, str_pronounced)/len(str_displayed)
-        words.write("the pronounciation inacuuracy is: " + str(pronounciation_inaccuracy))
+        try:
+            str_pronounced = listen_for(30)
+            status.write("Time up! calculating inacuracy......")
+            # str_displayed = " ".join(arr)
+            pronounciation_inaccuracy = check_pronounciation(str_displayed, str_pronounced)/len(str_displayed)
+            words.write("the pronounciation inacuuracy is: " + str(pronounciation_inaccuracy))
+        except:
+            status.write("apparantly you spoke nothing...") 
+        
     
       
-    
-with tab3:   
-    written_words =[]
-    st.header("The listening ability of the user will be measured here")
-    dictation_inacuracy = 0
-    level = 0
-    option = st.selectbox(
-            "select your standard", ('2nd-4th', '5th-7th'), key= "read")
-    if option=='2nd-4th':
-        level = 2
-    elif option == '5th-7th':
-        level = 1
-    
-    word_array = get_10_word_array(level)
-    
-    start = st.button("start the test")
-    
-    if start:
-        talk(word_array[0])
-       
-    st.write('please type the word you heard below')
-    form1 = st.form(key='word1')
-    name1 = form1.text_input('word 1')
-    submit1 = form1.form_submit_button('Submit')
-    if submit1:
-        st.write(f'hello {name1}')
-        time.sleep(2)
-        talk(word_array[1])
-        
-        
+word_array = get_10_word_array(level)
+ 
+# with tab3: 
+      
 
-    st.write('please type the word you heard below')
-    form2 = st.form(key='word2')
-    name2 = form2.text_input('word 2')
-    submit2 = form2.form_submit_button('Submit')
-    if submit2:
-        st.write(f'hello {name2}')
-        time.sleep(2)
-        talk(word_array[2])
-        
-        
-    st.write('please type the word you heard below')
-    form3 = st.form(key='word3')
-    name3 = form3.text_input('word 3')
-    submit3 = form3.form_submit_button('Submit')
-    if submit3:
-        st.write(f'hello {name3}')
-        time.sleep(2)
-        talk(word_array[3])
-        
-        
-    st.write('please type the word you heard below')
-    form4 = st.form(key='word4')
-    name4 = form4.text_input('word 4')
-    submit4 = form4.form_submit_button('Submit')
-    if submit4:
-        st.write(f'hello {name4}')
-        time.sleep(2)
-        talk(word_array[4])
-        
-    st.write('please type the word you heard below')
-    form5 = st.form(key='word5')
-    name5 = form5.text_input('word 5')
-    submit5 = form5.form_submit_button('Submit')
-    if submit5:
-        st.write(f'hello {name5}')
-        time.sleep(2)
-        talk(word_array[5])
-        
-    st.write('please type the word you heard below')
-    form6 = st.form(key='word6')
-    name6 = form6.text_input('word 6')
-    submit6 = form6.form_submit_button('Submit')
-    if submit6:
-        st.write(f'hello {name6}')
-        time.sleep(2)
-        talk(word_array[6])
     
